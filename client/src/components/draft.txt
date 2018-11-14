@@ -1,0 +1,1 @@
+ {data.launch.launch_success? (<i className="text-success">{"<success>"}</i>) : (<i className="text-danger">{"<failed>"}</i>)}
