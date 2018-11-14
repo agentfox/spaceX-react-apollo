@@ -5,8 +5,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const graphqlHTTP = require('express-graphql');
 const MyGraphQLSchema = require('./MyGraphQLSchema')
-
+const cors = require('cors');
 var app = express();
+
+// Allow cross origin
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
