@@ -30,8 +30,8 @@ export default class Launches extends Component {
                     return (
                             <div className="w-75 mx-auto">
                             {
-                                data.launches.map(launch=> (
-                                    <LaunchItem launch={launch} key={launch.flight_number + Math.random().toString(36).substring(7)} />
+                                data && data.launches.map((launch, index)=> (
+                                    <LaunchItem launch={launch} key={launch.flight_number+`${index}`} />
                                 ))
                             }</div>
                         )

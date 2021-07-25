@@ -6,7 +6,13 @@
     "start": "node ./bin/www",
     "server": "nodemon ./bin/www",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "client2": "npm start --prefix client2",
+    "build1": "npm run build --prefix client",
+    "build2": "npm run build --prefix client2",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev2": "concurrently \"npm run server\" \"npm run client2\"",
+    "prod": "npm run build1 && npm run server",
+    "prod2": "npm run build2 && npm run server"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -18,7 +24,8 @@
     "express-graphql": "^0.7.1",
     "graphql": "^14.0.2",
     "http-errors": "~1.6.2",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "tiktok-api": "^0.4.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.6"

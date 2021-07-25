@@ -7,6 +7,7 @@ const graphqlHTTP = require('express-graphql');
 const MyGraphQLSchema = require('./MyGraphQLSchema')
 const cors = require('cors');
 var app = express();
+var expressRoute = require('./routes/index');
 
 // Allow cross origin
 app.use(cors());
@@ -21,14 +22,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use("/", expressRoute);
+
 app.use('/graphql', graphqlHTTP({
   schema: MyGraphQLSchema,
   graphiql: true
 }));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-});
+
 
 
 // catch 404 and forward to error handler
